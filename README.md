@@ -1,4 +1,4 @@
-# 🗺️ Run-to-Own (Next.js Edition)
+# 🗺️ Run-to-Own
 
 [![Live Demo](https://img.shields.io/badge/demo-live_site-0e6e55?style=for-the-badge)](https://run-to-own.vercel.app/)
 [![Powered by Strava](https://img.shields.io/badge/Strava-API_Integrated-FC4C02?style=for-the-badge&logo=strava)](https://developers.strava.com/)

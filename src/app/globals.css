@@ -661,6 +661,13 @@ body.dark.profile-page {
   height: 320px;
   width: 100%;
   border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.run-map .maplibregl-ctrl,
+.run-map .mapboxgl-ctrl {
+  display: none !important;
 }
 
 .run-post-details {

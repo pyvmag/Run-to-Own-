@@ -28,7 +28,8 @@ function ActivityMap({ summaryPolyline, activityId }: { summaryPolyline: string;
         style: 'https://api.maptiler.com/maps/hybrid/style.json?key=dpvZMY5gns5lycvwB2Fb',
         center: coordinates[0] as [number, number],
         zoom: 12,
-        interactive: true,
+        interactive: false,
+        attributionControl: false,
       });
 
       mapRef.current = map;

@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                 BigInt           @id
+  username           String
+  email              String?
+  totalDistance      Float            @default(0.0) @map("total_distance")
+  lastSyncTimestamp  DateTime?        @map("last_sync_timestamp")
+  currentStreak      Int              @default(0) @map("current_streak")
+  lastActivityDate   DateTime?        @map("last_activity_date")
+  bestStreak         Int              @default(0) @map("best_streak")
+  
+  // Relations
+  stats              TileUserStats[]
+  sentFriendships    Friendship[]     @relation("SentFriendships")
+  receivedFriendships Friendship[]    @relation("ReceivedFriendships")
+
+  @@map("users")
+}
+
+model Tile {
+  h3Index    String   @id @map("h3_index")
+  ownerId    BigInt?  @map("owner_id")
+  ownerName  String?  @map("owner_name")
+
+  // Relations
+  stats      TileUserStats[]
+
+  @@map("tiles")
+}
+
+model TileUserStats {
+  tileId               String   @map("tile_id")
+  userId               BigInt   @map("user_id")
+  totalDistanceInMeters Float    @default(0.0) @map("total_distance")
+
+  // Relations
+  tile                 Tile     @relation(fields: [tileId], references: [h3Index], onDelete: Cascade)
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([tileId, userId])
+  @@map("tile_user_stats")
+}
+
+enum FriendshipStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  BLOCKED
+}
+
+model Friendship {
+  id              Int              @id @default(autoincrement())
+  requesterId     BigInt           @map("requester_id")
+  addresseeId     BigInt           @map("addressee_id")
+  status          FriendshipStatus
+  actionTimestamp DateTime         @default(now()) @map("action_timestamp")
+
+  // Relations
+  requester       User             @relation("SentFriendships", fields: [requesterId], references: [id], onDelete: Cascade)
+  addressee       User             @relation("ReceivedFriendships", fields: [addresseeId], references: [id], onDelete: Cascade)
+
+  @@map("friendships")
+}

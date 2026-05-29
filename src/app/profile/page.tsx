@@ -27,10 +27,6 @@ export default function ProfilePage() {
     };
   }, []);
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const [userDetails, setUserDetails] = useState<any>({ totalDistance: 0, currentStreak: 0, bestStreak: 0 });
   const [stats, setStats] = useState<any>(null);
@@ -238,6 +234,12 @@ export default function ProfilePage() {
           </div>
         </div>
 
+        {/* Strava Attribution */}
+        <div className="flex justify-end mt-4 mb-2 pr-2">
+          <img src="/images/powered_by_strava_orange.svg" alt="Powered by Strava" className="h-[24px] w-auto opacity-90 block dark:hidden" />
+          <img src="/images/powered_by_strava_white.svg" alt="Powered by Strava" className="h-[24px] w-auto opacity-90 hidden dark:block" />
+        </div>
+
         {/* Interactive Weekly Chart Overlay */}
         <section className="chart-section">
           <h2>Weekly Summary</h2>
@@ -248,7 +250,7 @@ export default function ProfilePage() {
             <button id="toggle-weight">🏋️ Weight</button>
           </div>
           <div id="weeklyChart">
-            {mounted && <Chart options={chartOptions} series={chartSeries} type="area" height={350} />}
+            <Chart options={chartOptions} series={chartSeries} type="area" height={350} />
           </div>
         </section>
 

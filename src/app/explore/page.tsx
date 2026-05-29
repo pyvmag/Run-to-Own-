@@ -163,9 +163,15 @@ export default function ExplorePage() {
     <div className="explore-page-wrapper">
       <Navbar />
 
-      <div className="map-container">
+      <div className="map-container relative">
         <div ref={mapContainerRef} id="map" />
         
+        {/* Strava Attribution */}
+        <div className="absolute bottom-6 left-4 z-10 pointer-events-none">
+          <img src="/images/powered_by_strava_orange.svg" alt="Powered by Strava" className="h-[24px] w-auto opacity-90 block dark:hidden" />
+          <img src="/images/powered_by_strava_white.svg" alt="Powered by Strava" className="h-[24px] w-auto opacity-90 hidden dark:block" />
+        </div>
+
         {/* Floating Sync Overlay */}
         <div className="map-overlay">
           <button

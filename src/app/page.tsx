@@ -23,14 +23,21 @@ export default async function LoginPage() {
             Every run expands your kingdom. Blaze paths, conquer territories, and build your empire.
           </p>
 
-          <a href="/api/auth/strava" className="strava-login-btn">
-            <img src="/icons/strava-icon.png" alt="Strava" />
-            Connect with Strava
-          </a>
+          <div className="flex flex-col items-center w-full max-w-[280px] mx-auto mt-4">
+            <a href="/api/auth/strava" className="w-full hover:opacity-90 transition-opacity">
+              <img src="/images/btn_strava_connect_orange.svg" alt="Connect with Strava" className="w-full h-auto" />
+            </a>
 
-          <a href="/api/auth/login/guest" className="guest-login-btn">
-            🔑 Try Guest Mode (Demo)
-          </a>
+            <div className="flex items-center w-full justify-center my-4">
+              <div className="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+              <span className="px-3 text-sm font-medium text-gray-500 dark:text-gray-400">or</span>
+              <div className="h-px bg-gray-300 dark:bg-gray-700 flex-1"></div>
+            </div>
+
+            <a href="/api/auth/login/guest" className="guest-login-btn !mt-0 !w-full">
+              🔑 Try Guest Mode (Demo)
+            </a>
+          </div>
 
           <div className="feature-bullets">
             <div className="bullet">
@@ -48,14 +55,14 @@ export default async function LoginPage() {
       
       <footer className="app-footer">
         <img
-          src="/images/powered_by_strava_1.png"
+          src="/images/powered_by_strava_orange.svg"
           alt="Powered by Strava"
-          className="strava-logo light-logo block dark:hidden"
+          className="strava-logo light-logo block dark:hidden h-[24px] w-auto"
         />
         <img
-          src="/images/powered_by_strava_2.png"
+          src="/images/powered_by_strava_white.svg"
           alt="Powered by Strava"
-          className="strava-logo dark-logo hidden dark:block"
+          className="strava-logo dark-logo hidden dark:block h-[24px] w-auto"
         />
       </footer>
     </div>

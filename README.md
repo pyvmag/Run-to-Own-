@@ -143,3 +143,21 @@ Have ideas for team turf wars, multi-city lobbies, or localized event layers?
 * **Maintainer:** Vaibhav Magdum
 * **Portfolio:** [vaibhavmagdum.vercel.app](https://vaibhavmagdum.vercel.app)
 * **GitHub:** [@pyvmag](https://github.com/pyvmag)
+
+---
+
+## Support, Privacy & Data Deletion
+
+### Support & Contact
+If you encounter any bugs, authentication errors, or sync performance issues with **Run-to-Own**, please open an official tracking issue directly in this repository's [Issues Tab](https://github.com/pyvmag/run-to-own-/issues). 
+
+### Privacy Policy
+Run-to-Own respects your data privacy. We strictly utilize your Strava activity coordinate polylines to calculate your aggregate, anonymous distance metrics inside our localized H3 grid map zones. 
+* We do **not** sell, rent, or lease your personal workout data to third-party brokers or advertisers.
+* No raw, private Strava maps or individual performance splits are shared with other users.
+* In strict compliance with the Strava API Agreement, no activity data points remain cached in our database storage infrastructure longer than seven (7) days.
+
+### How to Revoke Access & Delete Data
+You are in full control of your information. If you wish to completely disconnect your profile and permanently wipe your data from our database servers, you can do so in two ways:
+1. **Self-Service Revocation:** Log into your Strava dashboard, navigate to your Settings -> My Apps, and click **Revoke Access** next to the Run-to-Own application token.
+2. **Manual Deletion Request:** Open a GitHub issue here requesting data removal. In strict accordance with platform policies, all personal and historical records matching your account profile will be permanently purged and cleared from our databases within 48 hours.
